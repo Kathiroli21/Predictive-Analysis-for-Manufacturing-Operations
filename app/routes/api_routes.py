@@ -103,10 +103,7 @@ def train_model():
     model_path = os.path.join(MODEL_FOLDER, 'optimized_model.pkl')
     joblib.dump(best_model, model_path)
 
-    return jsonify({
-        
-        "message": "Model trained and optimized successfully",
-        "best_params": grid_search.best_params_,
+    return jsonify({  
         "accuracy": accuracy,
         "f1_score": f1
     }), 200
@@ -149,6 +146,7 @@ def predict():
     confidence = max(model.predict_proba(input_df)[0])
 
     return jsonify({
+        
         "Downtime": "Yes" if prediction == 1 else "No",
         "Confidence": round(confidence, 2)
     }), 200
