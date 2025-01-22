@@ -4,7 +4,7 @@
 
 1. **Clone the repository:**
    ```
-   git clone <repository-url>
+   git clone repository-url
    cd manufacturing-api
    ```
 
@@ -23,6 +23,11 @@
 4. **Test endpoints:**
    - **Upload:** POST `/upload` with a CSV file.
    - **Train:** POST `/train`
+ 
+    ```
+     You can get the test data file `Machine Downtime.csv` from the 'test_data' folder,  
+     which can be used for testing the endpoints.
+     ```
    - **Predict:** POST `/predict` with JSON payload:
      ```json
      {
@@ -46,6 +51,6 @@
 ## API Endpoints
 
 - **POST /upload**: Uploads a CSV file containing manufacturing data.
-- **POST /train**: Trains the machine learning model using uploaded data.
+- **POST /train**: Trains the machine learning model using the latest uploaded data.
 - **POST /predict**: Predicts downtime based on input parameters.
   
