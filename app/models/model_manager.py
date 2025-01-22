@@ -28,16 +28,13 @@ class ModelManager:
             raise Exception("Model not trained yet.")
 
     def upload_file(self, file):
-            # Ensure the upload folder exists
             if not os.path.exists(self.BASE_UPLOAD_FOLDER):
                 os.makedirs(self.BASE_UPLOAD_FOLDER)
 
-            # Generate a unique filename with timestamp
             filename = secure_filename(file.filename)
             timestamp = int(time.time())
             unique_filename = f"{os.path.splitext(filename)[0]}_{timestamp}{os.path.splitext(filename)[1]}"
 
-            # Save the file
             file_path = os.path.join(self.MODEL_FOLDER , unique_filename)
             file.save(file_path)
 
